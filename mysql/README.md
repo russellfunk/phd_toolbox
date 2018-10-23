@@ -90,7 +90,7 @@ from my_database.firms;
 update my_database.firms
 set treated = 1
 where year > 2000
-and state in ('MN');
+and state in ('MN','OH');
 ```
 
 
@@ -117,4 +117,78 @@ from my_database.firms,
 where firms.state = states.state;
 ```
 
-## Exercises
+## On to real data!
+We're moving very quickly---don't worry if you feel a bit lost. In my experience, the best way to learn any kind of programming language or tool is to simply get your hands dirty and start working with real data. You'll feel more motivated and get a better sense for how the tool may be useful in the real world.
+
+We're going to focus on fiddling with some data on granted patents from the U.S. Patent & Trademark Office (USPTO), available here: (http://www.patentsview.org/download/). Make sure to check out the codebook (see the link on the left side of the page), which, helpfully, tells you which data fields you should use to define your tables when loading the data into MySQL.
+
+Download the following files and extract them to a directory
+* patent (http://s3.amazonaws.com/data-patentsview-org/20180528/download/patent.tsv.zip)
+* rawassignee (http://s3.amazonaws.com/data-patentsview-org/20180528/download/rawassignee.tsv.zip)
+
+Run the following queries to get the data loaded
+
+
+```mysql
+-- create database
+create schema patentsview 
+default character set utf8 
+collate utf8_bin;
+```
+
+```mysql
+-- patent
+drop table if exists patentsview.patent;
+create table patentsview.patent (
+id varchar(20) not null,
+type varchar(100) null default null,
+number varchar(100) not null,
+country varchar(20) null default null,
+date date null default null,
+abstract text null default null,
+title text null default null,
+kind varchar(10) null default null,
+num_claims int(11) null default null,
+filename varchar(120) null default null,
+primary key (id));
+```
+
+```mysql
+load data local infile 'patent.tsv' 
+  into table patentsview.patent 
+  fields 
+     terminated by '\t' 
+  lines terminated by '\n' 
+  ignore 1 lines
+  (@id,
+   @type,
+   @number,
+   @country,
+   @date,
+   @abstract,
+   @title,
+   @kind,
+   @num_claims,
+   @filename)
+   set id=if(@id='' or @id='NULL', null, @id),
+       type=if(@type='' or @type='NULL', null, @type),
+       number=if(@number='' or @number='NULL', null, @number),
+       country=if(@country='' or @country='NULL', null, @country),
+       date=if(@date='' or @date='NULL', null, @date),
+       abstract=if(@abstract='' or @abstract='NULL', null, @abstract),
+       title=if(@title='' or @title='NULL', null, @title),
+       kind=if(@kind='' or @kind='NULL', null, @kind),
+       num_claims=if(@num_claims='' or @num_claims='NULL', null, @num_claims),
+       filename=if(@filename='' or @filename='NULL', null, @filename);
+```
+
+```mysql
+-- add indexes
+alter table patentsview.patent add index number_idx (number asc);
+```
+
+
+
+## Exercises for during the workshop
+
+

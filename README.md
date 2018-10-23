@@ -26,7 +26,7 @@ These notes are intended to accompany workshop presentations and are not meant t
 * In addition, MySQL is designed to "play nicely" with many other data tools, which greatly extends its scope and power
   * For example, in the third session, we'll work on integrating MySQL and Python.
 
-![alt text](https://github.com/adam-p/markdown-here/raw/master/src/common/images/icon48.png "Logo Title Text 1")
+![alt text](https://github.com/russellfunk/phd_toolbox/blob/master/images/change_my_mind.jpeg "Logo Title Text 1")
 
 ## How do you do things with MySQL?
 

@@ -248,6 +248,6 @@ alter table patentsview.rawassignee add index `patent_id_idx` (`patent_id` asc);
 * How many __unique countries__ are represented in the `country` column of the `patent` table? (moderate)
 * Find the most __prolific assignee__ (by name) in the year 1980 (hard)
 * On average, how many __claims__ do issued patents make by year? (hard)
-  * Is there any trend in this average?
+  * Is there any __trend__ in this average?
 
 

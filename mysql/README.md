@@ -46,6 +46,7 @@ collate utf8_bin;
 
 ```mysql
 -- create a table for firms
+drop table if exists my_database.firms;
 create table my_database.firms
 (firm_id int(11) not null,
 year int(11) not null,
@@ -57,7 +58,7 @@ primary key (firm_id, year));
 
 ```mysql
 -- insert query
-insert into my_database.firms (firm_id, year, state) values (1, 1999, 'MN', 2),
+insert into my_database.firms (firm_id, year, state, profits) values (1, 1999, 'MN', 2),
                                                             (1, 2000, 'MN', -2),
                                                             (1, 2001, 'MN', 10),
                                                             (1, 2002, 'MN', 2),
@@ -104,9 +105,16 @@ primary key (state));
 ```mysql
 -- insert query
 insert into my_database.states (state, population) values ('MN', 5.577),
-                                                          ('VA' 8.47),
+                                                          ('VA', 8.47),
                                                           ('OH', 11.66);
 ```
 
+```mysql
+-- join query
+select *
+from my_database.firms,
+     my_database.states
+where firms.state = states.state;
+```
 
 ## Exercises

@@ -22,7 +22,7 @@
 * In addition, MySQL is designed to "play nicely" with __many other data tools,__ which greatly extends its scope and power
   * For example, in the third session, we'll work on integrating __MySQL__ and __Python.__
 
-(https://github.com/russellfunk/phd_toolbox/blob/master/images/change_my_mind.jpeg)
+![](https://github.com/russellfunk/phd_toolbox/blob/master/images/change_my_mind.jpeg)
 
 ## How do you do things with MySQL?
 * More than just letting you __store your data,__ MySQL also lets you __do things__ more actively

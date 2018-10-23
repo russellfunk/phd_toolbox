@@ -11,22 +11,23 @@
  * __Databases__ are collections of related tables
 
 ## Why should you use MySQL?
-* Most people in our field tend to use tools like Stata or Excel for data management
-* But Stata and Excel are not designed to be data management tools, and consequently, most researchers stretch them beyond their limits
- * This is increasingly true as projects using "big" data are becoming more common
-* MySQL is designed from the ground up for data management, which gives it many advantages over other tools
-  * Speed (access and manipulate data quickly)
-  * Scale (manage projects with millions or billions of records)
-  * Storage (keep one copy of your data, minimize possibility of errors, use only what you need)
-* In addition, MySQL is designed to "play nicely" with many other data tools, which greatly extends its scope and power
-  * For example, in the third session, we'll work on integrating MySQL and Python.
+* Most people in our field tend to use tools like __Stata__ or __Excel__ for data management
+* But Stata and Excel are not designed to be data management tools, and consequently, most researchers __stretch them beyond their limits__
+ * This is increasingly true as projects using __"big" data__ are becoming more common
+* MySQL is designed __from the ground up__ for data management, which gives it many advantages over other tools
+  * __Speed__ (access and manipulate data quickly)
+  * __Scale__ (manage projects with millions or billions of records)
+  * __Storage__ (keep one copy of your data, minimize possibility of errors, use only what you need)
+  * __Integrity__ (identify errors in your data quickly, and prevent them from occurring in the first place)
+* In addition, MySQL is designed to "play nicely" with __many other data tools,__ which greatly extends its scope and power
+  * For example, in the third session, we'll work on integrating __MySQL__ and __Python.__
 
 ![alt text](https://github.com/russellfunk/phd_toolbox/blob/master/images/change_my_mind.jpeg "Logo Title Text 1")
 
 ## How do you do things with MySQL?
-* More than just letting you store your data, MySQL also lets you do things more actively
-* In SQL land, you act on your data by running __queries__ (hence the name, __S__tructured __Q__uery __L__anguage)
-* Probably 90% of what you do in MySQL will consist of running some combination of the following types of queries
+* More than just letting you __store your data,__ MySQL also lets you __do things__ more actively
+* In SQL land, you act on your data by running __queries__ (hence the name, __S__ tructured __Q__ uery __L__ anguage)
+* Probably __90%__ of what you do in MySQL will consist of running some combination of the following types of __queries__
   * `select` queries are for viewing records
   * `update` queries are for updating existing records
   * `insert` queries are for adding new records
@@ -35,7 +36,7 @@
   * `create table` queries are for creating new tables
   * `join` queries are for linking across tables
   
-Here are a few quick examples that bring together some of these queries (and a few more)
+Here are a few quick __examples__ that bring together some of these queries (and a few more)
 
 ```mysql
 -- create database
@@ -137,7 +138,7 @@ collate utf8_bin;
 ```
 
 ```mysql
--- patent
+-- create a table to hold the patent data
 drop table if exists patentsview.patent;
 create table patentsview.patent (
 id varchar(20) not null,
@@ -154,6 +155,7 @@ primary key (id));
 ```
 
 ```mysql
+-- load the patent data
 load data local infile 'patent.tsv' 
   into table patentsview.patent 
   fields 
@@ -184,11 +186,68 @@ load data local infile 'patent.tsv'
 
 ```mysql
 -- add indexes
-alter table patentsview.patent add index number_idx (number asc);
+alter table patentsview.patent add index `number_idx` (`number` asc),
+                               add index `date_idx` (`date` asc);
+```
+
+```mysql
+-- create a table to hold the assignee data
+drop table if exists patentsview.rawassignee;
+create table patentsview.rawassignee (
+uuid varchar(45) not null,
+patent_id varchar(20) not null,
+assignee_id varchar(45) null default null,
+rawlocation_id varchar(150) null default null,
+type int(11) null default null,
+name_first varchar(100) null default null,
+name_last varchar(100) null default null,
+organization varchar(300) null default null,
+sequence int(11) not null,
+primary key (uuid),
+unique key (patent_id, sequence));
+```
+
+```mysql
+-- load the rawassignee data
+load data local infile 'rawassignee.tsv' 
+  into table patentsview.rawassignee 
+  fields 
+     terminated by '\t' 
+  lines terminated by '\n' 
+  ignore 1 lines
+  (@uuid, 
+   @patent_id, 
+   @assignee_id, 
+   @rawlocation_id, 
+   @type,
+   @name_first, 
+   @name_last,
+   @organization, 
+   @sequence)
+   set uuid=if(@uuid='' or @uuid='NULL', null, @uuid),
+       patent_id=if(@patent_id='' or @patent_id='NULL', null, @patent_id),
+       assignee_id=if(@assignee_id='' or @assignee_id='NULL', null, @assignee_id),
+       rawlocation_id=if(@rawlocation_id='' or @rawlocation_id='NULL', null, @rawlocation_id),
+       type=if(@type='' or @type='NULL', null, @type),
+       name_first=if(@name_first='' or @name_first='NULL', null, @name_first),
+       name_last=if(@name_last='' or @name_last='NULL', null, @name_last),
+       organization=if(@organization='' or @organization='NULL', null, @organization),
+       sequence=if(@sequence='' or @sequence='NULL', null, @sequence);
+```
+
+```mysql
+-- add indexes
+alter table patentsview.rawassignee add index `patent_id_idx` (`patent_id` asc);
 ```
 
 
 
 ## Exercises for during the workshop
+
+* Determine how many patents were __granted__ in the year 1980 (easy)
+* How many __unique countries__ are represented in the `country` column of the `patent` table? (moderate)
+* Find the most __prolific assignee__ (by name) in the year 1980 (hard)
+* On average, how many __claims__ do issued patents make by year? (hard)
+  * Is there any trend in this average?
 
 

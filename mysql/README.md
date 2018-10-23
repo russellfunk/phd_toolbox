@@ -41,7 +41,8 @@ Here are a few quick examples that bring together some of these queries (and a f
 -- create database
 create schema my_database 
 default character set utf8 
-collate utf8_bin;```
+collate utf8_bin;
+```
 
 ```mysql
 -- create a table for firms
@@ -51,7 +52,8 @@ year int(11) not null,
 state varchar(2) null,
 profits double null,
 treated int(11) null,
-primary key (firm_id, year));```
+primary key (firm_id, year));
+```
 
 ```mysql
 -- insert query
@@ -73,19 +75,22 @@ insert into my_database.firms (firm_id, year, state) values (1, 1999, 'MN', 2),
                                                             (4, 1999, 'OH', 0),
                                                             (4, 2000, 'OH', null),
                                                             (4, 2001, 'OH', null),
-                                                            (4, 2002, 'OH', null);```
+                                                            (4, 2002, 'OH', null);
+```
 
 ```mysql
 -- select query
 select *
-from my_database.firms;```
+from my_database.firms;
+```
  
 ```mysql
 -- update query
 update my_database.firms
 set treated = 1
 where year > 2000
-and state in ('MN') ;```
+and state in ('MN');
+```
 
 
 ```mysql
@@ -93,13 +98,15 @@ and state in ('MN') ;```
 create table my_database.states
 (state varchar(2) not null,
 population double null,
-primary key (state));```
+primary key (state));
+```
 
 ```mysql
 -- insert query
 insert into my_database.states (state, population) values ('MN', 5.577),
                                                           ('VA' 8.47),
-                                                          ('OH', 11.66);```
+                                                          ('OH', 11.66);
+```
 
 
 ## Exercises

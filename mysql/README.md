@@ -250,7 +250,7 @@ alter table patentsview.rawassignee add index `patent_id_idx` (`patent_id` asc);
 * On average, how many __claims__ do issued patents make by year? (hard)
   * Is there any __trend__ in this average?
 
-## Bonus notes---Loading data into MySQL
+## More on loading data into MySQL
 
 * Loading data into MySQL can be a pain because (as you can see from the code above) you need to declare the data types for each field in advance
 * Getting the data types right is important to ensure data integrity; MySQL will also complain relentlessly (for good reason) if you try to import data (e.g., string) into a column defined by an incompatible data type (e.g., double)
@@ -259,9 +259,9 @@ alter table patentsview.rawassignee add index `patent_id_idx` (`patent_id` asc);
 * The best place to start is with MySQL Workbench's Data Import wizard (go to `Server -> Data Import`)
 * Another tool that can do this is `csvkit` (see the `csvsql` command) (https://csvkit.readthedocs.io/) 
 
-## Bonus notes---Digging deeper
+## Digging deeper
 
-In my view, the best way to learn about MySQL is to use it for your research. But it's also good to have a reference lying around for when you get stuck. See below for some resources that I've found (and continue to find) useful.
+The best way to learn about MySQL is to use it for your research. But it's also good to have a reference lying around for when you get stuck. See below for some resources that I've found (and continue to find) useful.
 
 * [MySQL (5th Edition) (Developer's Library)](https://www.amazon.com/MySQL-Developers-Library-Paul-DuBois/dp/0321833872/ref=sr_1_4?ie=UTF8&qid=1540413243&sr=8-4&keywords=mysql); save money by getting an older edition (4th edition should be fine)
 * [Stack Exchange site for databases](https://dba.stackexchange.com/)

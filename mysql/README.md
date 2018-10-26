@@ -124,8 +124,8 @@ We're moving very quickly---don't worry if you feel a bit lost. In my experience
 We're going to focus on fiddling with some data on granted patents from the U.S. Patent & Trademark Office (USPTO), available here: (http://www.patentsview.org/download/). Make sure to check out the codebook (see the link on the left side of the page), which, helpfully, tells you which data fields you should use to define your tables when loading the data into MySQL.
 
 Download the following files and extract them to a directory
-* patent (http://s3.amazonaws.com/data-patentsview-org/20180528/download/patent.tsv.zip)
-* rawassignee (http://s3.amazonaws.com/data-patentsview-org/20180528/download/rawassignee.tsv.zip)
+* patent (http://www.patentsview.org/data/20171226/patent.tsv.zip)
+* rawassignee (http://www.patentsview.org/data/20171226/rawassignee.tsv.zip)
 
 Run the following queries to get the data loaded
 
@@ -133,8 +133,8 @@ Run the following queries to get the data loaded
 ```mysql
 -- create database
 create schema patentsview 
-default character set utf8 
-collate utf8_bin;
+default character set utf8mb4 
+collate utf8mb4_bin;
 ```
 
 ```mysql
@@ -156,6 +156,7 @@ primary key (id));
 
 ```mysql
 -- load the patent data
+set global local_infile = 'on';
 load data local infile 'patent.tsv' 
   into table patentsview.patent 
   fields 
@@ -209,6 +210,7 @@ unique key (patent_id, sequence));
 
 ```mysql
 -- load the rawassignee data
+set global local_infile = 'on';
 load data local infile 'rawassignee.tsv' 
   into table patentsview.rawassignee 
   fields 

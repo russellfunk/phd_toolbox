@@ -41,8 +41,8 @@ Here are a few quick __examples__ that bring together some of these queries (and
 ```mysql
 -- create database
 create schema my_database 
-default character set utf8 
-collate utf8_bin;
+default character set utf8mb4 
+collate utf8mb4_bin;
 ```
 
 ```mysql

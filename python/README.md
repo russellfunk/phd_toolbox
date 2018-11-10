@@ -304,7 +304,7 @@ print(location.raw)
 
 ## Digging deeper
 
-* For python questions, [http://stackoverflow.com/](Stack Overflow) is your friend
+* For python questions, [Stack Overflow](http://stackoverflow.com/) is your friend
 * [Python in a Nutshell](https://www.amazon.com/Python-Nutshell-Desktop-Quick-Reference/dp/144939292X/) and the [Python Cookbook](https://www.amazon.com/Python-Cookbook-Third-David-Beazley/dp/1449340377/) are both good general references.
 * [Natural Langauge Processing with Python](https://www.amazon.com/Natural-Language-Processing-Python-Analyzing/dp/0596516495/) is getting a bit dated but is still an outstanding introduction to the practical sides of NLP.
 * [Mining the Social Web](https://www.amazon.com/Mining-Social-Web-Facebook-Instagram/dp/1491985046/) is a nice overview of interacting with APIs using python, especially for social media sites.

@@ -1,49 +1,48 @@
 # Python
 
 ## What is Python?
-* General purpose programming language
+* General purpose __programming language__
 * Interpreted, not compiled
 * Object oriented
-* Named after Monty Python
+* Named after __Monty Python__
 
 ![](https://github.com/russellfunk/phd_toolbox/blob/master/images/monty_python.jpg)
 
-[This](https://www.youtube.com/watch?v=ycKNt0MhTkk) is why you'll often see spam (the food) references in python code.
+[This](https://www.youtube.com/watch?v=ycKNt0MhTkk) is why you'll often see __spam__ (the food) references in python code.
 
 ## Why should you use Python?
-* General purpose programming language
 * Helpful for nearly all aspects of the research process
-  * Data collection (e.g., web scraping, web interfaces)
-  * Data cleaning
-  * Data processing (e.g., constructing variables) 
-  * Data modeling (e.g., networks, machine learning)
-  * Data visualization
+  * Data __collection__ (e.g., web scraping, web interfaces)
+  * Data __cleaning__
+  * Data __processing__ (e.g., constructing variables) 
+  * Data __modeling__ (e.g., networks, machine learning)
+  * Data __visualization__
 * De facto language of the data science community
 * __Massive__ user base means people are always writing awesome libraries and it's easy to get help
 * It's also really easy to interface with other tools
 
 ## How do you do things with Python?
 
-When it comes to writing and running programs in Python, you have a few different options.
+When it comes to __writing and running programs__ in Python, you have a few different options.
 
 * Write code in a text editor and run using `Terminal` (macOS) or `Command Prompt` (Windows) (this is the best general purpose approach).
-* Write code directly in the python interpreter (this is most useful for quickly testing something or ver short programs)
+* Write code directly in the python __interpreter__ (this is most useful for quickly testing something or ver short programs)
 * Write code in [Jupyter Notebook](http://jupyter.org/) (this is a great approach for data analysis, but can be clunky for other things).
 
-Overall, there's no right or best way; just whatever is most comfortable and suits your needs.
+Overall, there's no right or best way; just __whatever is most comfortable__ and suits your needs.
 
 Here are a few quick __examples__ that bring together some of these queries (and a few more)
 
 ## How do I get started?
 
-No programming tutorial would be complete without a hello world program. Here's all you need in python. 
+No programming tutorial would be complete without a __hello world__ program. Here's all you need in python. 
 
 ```python
 print("Hello, World!")
 ```
 
 ## Data types
-One of the things that makes python so useful right out of the box are its native data types, so we're going to spend a while going through them. A few things to note. First, python uses ___dynamic typing__, meaning that variable types are not specifically declared and are instead inferred from the objects they represent.
+One of the things that makes python so useful right out of the box are its __native data types,__ so we're going to spend a while going through them. A few things to note. First, python uses ___dynamic typing__, meaning that variable types are not specifically declared and are instead inferred from the objects they represent.
 
 ```python
 foo = 0
@@ -140,7 +139,7 @@ foo.sort(reverse=True)
 del foo[0]
 ```
 
-There is a lot more that you can do with lists, most of which is a bit outside our scope today. But if you're curious, do some digging on `list` `comprehensions`.
+There's a lot __more you can do with lists,__ most of which is a bit outside our scope today. But if you're curious, do some digging on `list` `comprehensions`.
 
 ```python
 foo = "1, 2 buckle my shoe. 3, 4 shut the door."
@@ -162,7 +161,7 @@ b = (1, 2, 'a', 'b')
 
 # Dictionaries
 
-One of the most powerful data types in python is the dictionary. It's literally a mini database. The key thing to remember about dictionaries is that they create a 1 to 1 mapping of keys to values. That means that you cannot repeat the same key more than once.
+One of the most powerful data types in python is the __dictionary.__ It's literally a mini database. The key thing to remember about dictionaries is that they create a 1 to 1 mapping of keys to values. That means that you cannot repeat the same key more than once.
 
 ```python
 
@@ -203,7 +202,7 @@ for company_name in company_names:
 
 # Sets
 
-Sets are also useful, and can be extremely fast for some kinds of tasks. 
+Sets are also useful, and can be __extremely__ fast for some kinds of tasks. 
 
 ```python
 # initialize
@@ -225,7 +224,7 @@ print(len(set(foo)))
 
 ## Loops
 
-If you have any experience with other programming languages, you've almost certainly encountered loops. Not too many surprises in python.
+If you have any experience with other programming languages, you've almost certainly encountered __loops.__ Not too many surprises in python.
 
 ```python
 
@@ -253,9 +252,9 @@ while i < 100:
 
 ## Functions
 
-Details on functions are also a bit beyond the scope of this tutorial, but the basics are pretty straightforward.
+Details on __functions__ are also a bit beyond the scope of this tutorial, but the basics are pretty straightforward.
 
-Here is a function that computes a Jaccard coefficient, which measures the overlap between two sets, using some features of python's built in `set` data type:
+Here is a function that computes a __Jaccard coefficient,__ which measures the overlap between two sets, using some features of python's built in `set` data type:
 
 ```python
 def jaccard(a, b):
@@ -276,7 +275,7 @@ print(jaccard(innovative_firms, profitable_firms))
 
 
 ## Installing and loading packages
-Although the python programming language comes with a lot of useful built in tools and functions, what really makes the language so useful are the many thousands of third party packages that you can download and use freely. Installation is done via the `pip` command (like `ssc` in Stata).
+Although the python programming language comes with a lot of useful built in tools and functions, what really makes the language so useful are the many thousands of __third party packages__ that you can download and use freely. Installation is done via the `pip` command (like `ssc` in Stata).
 
 * `pip install numpy` (Numeric Python, matrix algebra and many other mathematical functions)
 * `pip install scipy` (Scientific Python, even more mathematical functions)
@@ -290,7 +289,7 @@ np.mean([1,2,3])
 
 ## Bonus—`geopy` package demonstration
 
-Install the package from the Python Package Index (pypi):
+Install the package from the __Python Package Index__ (pypi):
 * `pip install geopy`
 
 ```python

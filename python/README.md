@@ -65,15 +65,19 @@ int main()
 # Strings, numbers
 
 ```python
-"""numbers are pretty straightforward"""
+# numbers are pretty straightforward
+
+# initialize
 foo = 3
 bar = 4
 baz = foo/bar # be careful if you run this in python 2
 foo = 3.0
 bar = 4.0
+
+# operations
 baz = foo/bar # gives you the result you expect
 
-"""strings are awesome"""
+# strings are awesome!
 
 # initialize
 foo = "bar"

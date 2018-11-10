@@ -8,6 +8,8 @@
 
 ![](https://github.com/russellfunk/phd_toolbox/blob/master/images/monty_python.jpg)
 
+[This](https://www.youtube.com/watch?v=ycKNt0MhTkk) is why you'll often see spam (the food) references in python code.
+
 ## Why should you use Python?
 * General purpose programming language
 * Helpful for nearly all aspects of the research process
@@ -26,7 +28,7 @@ When it comes to writing and running programs in Python, you have a few differen
 
 * Write code in a text editor and run using `Terminal` (macOS) or `Command Prompt` (Windows) (this is the best general purpose approach).
 * Write code directly in the python interpreter (this is most useful for quickly testing something or ver short programs)
-* Write code in [http://jupyter.org/](Jupyter Notebook) (this is a great approach for data analysis, but can be clunky for other things).
+* Write code in [Jupyter Notebook](http://jupyter.org/) (this is a great approach for data analysis, but can be clunky for other things).
 
 Overall, there's no right or best way; just whatever is most comfortable and suits your needs.
 
@@ -303,6 +305,6 @@ print(location.raw)
 ## Digging deeper
 
 * For python questions, [http://stackoverflow.com/](Stack Overflow) is your friend
-* [https://www.amazon.com/Python-Nutshell-Desktop-Quick-Reference/dp/144939292X/](Python in a Nutshell) and the [https://www.amazon.com/Python-Cookbook-Third-David-Beazley/dp/1449340377/](Python Cookbook) are both good general references.
-* [https://www.amazon.com/Natural-Language-Processing-Python-Analyzing/dp/0596516495/](Natural Langauge Processing with Python) is getting a bit dated but is still an outstanding introduction to the practical sides of NLP.
-* [https://www.amazon.com/Mining-Social-Web-Facebook-Instagram/dp/1491985046/](Mining the Social Web) is a nice overview of interacting with APIs using python, especially for social media sites.
+* [Python in a Nutshell](https://www.amazon.com/Python-Nutshell-Desktop-Quick-Reference/dp/144939292X/) and the [Python Cookbook](https://www.amazon.com/Python-Cookbook-Third-David-Beazley/dp/1449340377/) are both good general references.
+* [Natural Langauge Processing with Python](https://www.amazon.com/Natural-Language-Processing-Python-Analyzing/dp/0596516495/) is getting a bit dated but is still an outstanding introduction to the practical sides of NLP.
+* [Mining the Social Web](https://www.amazon.com/Mining-Social-Web-Facebook-Instagram/dp/1491985046/) is a nice overview of interacting with APIs using python, especially for social media sites.

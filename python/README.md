@@ -6,7 +6,7 @@
 * Object oriented
 * Named after Monty Python
 
-![](https://github.com/russellfunk/phd_toolbox/blob/master/images/monty_python.png)
+![](https://github.com/russellfunk/phd_toolbox/blob/master/images/monty_python.jpg)
 
 ## Why should you use Python?
 * General purpose programming language
@@ -164,6 +164,39 @@ One of the most powerful data types in python is the dictionary. It's literally 
 
 ```python
 
+d = {}
+d["foo"] = 1
+d["foo"] = 2
+d["bar"] = "baz"
+
+# we often want to make dictionaries of dictionaries
+universities = {}
+universities[0] = {"name": "University of Minnesota", "city": "Minneapolis", "students": 51147}
+universities[1] = {"name": "University of Michigan", "city": "Ann Arbor", "students": 44718}
+
+# iterate over
+for id, data in universities.items():
+  print(id, data["name"], data["city"], data["students"])
+
+# we can access keys and values separately
+universities.keys()
+universities.values()
+
+# create a dictionary of corporate abbreviations
+ABBREVIATIONS = {"corporation": "Corp.",
+                 "incorporated": "Inc."}
+
+# now standardize some company names
+company_names = ("Microsoft Corporation", "Yahoo Incorporated", "New York Times, Inc.")
+
+for company_name in company_names:
+  clean_name = []
+  for token in company_name.split():
+    if token.lower() in ABBREVIATIONS:
+      clean_name.append(ABBREVIATIONS[token.lower()])
+    else:
+      clean_name.append(token)
+  print(" ".join(clean_name))
 ```
 
 # Sets
@@ -171,7 +204,21 @@ One of the most powerful data types in python is the dictionary. It's literally 
 Sets are also useful, and can be extremely fast for some kinds of tasks. 
 
 ```python
+# initialize
+foo = {1,2,3,4,3,2}
+bar = set([4,3,2])
 
+# do some stuff
+foo.intersection(bar)
+bar.add(7)
+foo.intersection(bar)
+foo.discard(1)
+foo.intersection(bar)
+
+# sets are really useful for counting the number of unique items in a list
+foo = [1,3,4,5,6,5,4,3,2,2,4,6,3]
+print(len(foo))
+print(len(set(foo)))
 ```
 
 ## Loops
@@ -208,11 +255,6 @@ Details on functions are also a bit beyond the scope of this tutorial, but the b
 
 Here is a function that computes a Jaccard coefficient, which measures the overlap between two sets, using some features of python's built in `set` data type:
 
-```math #yourmathlabel
-a + b = c
-```
-
-
 ```python
 def jaccard(a, b):
   """Given two lists, a and b, return the jaccard coefficient."""
@@ -220,8 +262,16 @@ def jaccard(a, b):
   s2 = set(b)
   intersection = s1.intersection(s2)
   union = s1.union(s2)
-  return len(intersection) / len(union)
+  return float(len(intersection)) / len(union)
 ```
+
+```python
+innovative_firms = ["C10","C24","C45","C12","C09","C12"]
+profitable_firms = ["C34","C09","C45","C25","C45","C19","C04","C12"]
+print(jaccard(innovative_firms, profitable_firms))
+
+```
+
 
 ## Installing and loading packages
 Although the python programming language comes with a lot of useful built in tools and functions, what really makes the language so useful are the many thousands of third party packages that you can download and use freely. Installation is done via the `pip` command (like `ssc` in Stata).

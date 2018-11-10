@@ -204,8 +204,42 @@ while i < 100:
 
 ## Functions
 
+Details on functions are also a bit beyond the scope of this tutorial, but the basics are pretty straightforward.
 
-## Bonus—cool package demonstration (geopy)
+Here is a function that computes a Jaccard coefficient, which measures the overlap between two sets, using some features of python's built in `set` data type:
+
+```math #yourmathlabel
+a + b = c
+```
+
+
+```python
+def jaccard(a, b):
+  """Given two lists, a and b, return the jaccard coefficient."""
+  s1 = set(a)
+  s2 = set(b)
+  intersection = s1.intersection(s2)
+  union = s1.union(s2)
+  return len(intersection) / len(union)
+```
+
+## Installing and loading packages
+Although the python programming language comes with a lot of useful built in tools and functions, what really makes the language so useful are the many thousands of third party packages that you can download and use freely. Installation is done via the `pip` command (like `ssc` in Stata).
+
+* `pip install numpy` (Numeric Python, matrix algebra and many other mathematical functions)
+* `pip install scipy` (Scientific Python, even more mathematical functions)
+
+Loading is easy:
+
+```python
+import numpy as np
+np.mean([1,2,3])
+```
+
+## Bonus—`geopy` package demonstration
+
+Install the package from the Python Package Index (pypi):
+* `pip install geopy`
 
 ```python
 from geopy.geocoders import Nominatim

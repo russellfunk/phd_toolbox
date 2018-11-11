@@ -290,7 +290,7 @@ np.mean([1,2,3])
 
 ## Bonus—`geopy` package demonstration
 
-Install the package from the __Python Package Index__ (pypi):
+As a quick illustration of how useful third party packages can be, let's go through a quick example. Install the package from the __Python Package Index__ (pypi):
 * `pip install geopy`
 
 ```python

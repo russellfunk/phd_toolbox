@@ -60,7 +60,7 @@ int main()
    return 0;
 }
 ```
-...in which the compiler get angry. 
+...in which the compiler gets angry. 
 
 # Strings, numbers
 
@@ -162,16 +162,28 @@ b = (1, 2, 'a', 'b')
 
 # Dictionaries
 
-One of the most powerful data types in Python is the __dictionary.__ It's literally a mini database. The key thing to remember about dictionaries is that they create a 1 to 1 mapping of keys to values. That means that you cannot repeat the same key more than once.
+One of the most powerful data types in Python is the __dictionary.__ It's literally a mini database. The important thing to remember about dictionaries is that they create a 1 to 1 mapping of keys to values. That means that you cannot repeat the same key more than once.
 
 ```python
 
 d = {}
 d["foo"] = 1
-d["foo"] = 2
-d["bar"] = "baz"
+d["spam"] = 2
+d[7] = "baz"
+```
+In the dictionary above, we have the following key-value pairs:
 
-# we often want to make dictionaries of dictionaries
+| Key           | Value         | 
+| ------------- | ------------- |
+| foo           | 1             | 
+| spam          | 2             |
+| 7             | baz           |
+
+Notice that our keys and values can be different data types.
+
+Moving on, sometimes it's also useful to make __dictionaries of dictionaries.__
+
+```python
 universities = {}
 universities[0] = {"name": "University of Minnesota", "city": "Minneapolis", "students": 51147}
 universities[1] = {"name": "University of Michigan", "city": "Ann Arbor", "students": 44718}
@@ -183,7 +195,24 @@ for id, data in universities.items():
 # we can access keys and values separately
 universities.keys()
 universities.values()
+```
 
+Python has a built in package that can let us __print out our dictionary__ in a nice, human readable format. 
+
+```python
+>>> from pprint import pprint
+>>> pprint(universities)
+{0: {'city': 'Minneapolis',
+     'name': 'University of Minnesota',
+     'students': 51147},
+ 1: {'city': 'Ann Arbor', 
+     'name': 'University of Michigan', 
+     'students': 44718}}
+```
+
+The following is a really simple illustration of how dictionaries can be useful for some aspects of __data cleaning__.
+
+```python
 # create a dictionary of corporate abbreviations
 ABBREVIATIONS = {"corporation": "Corp.",
                  "incorporated": "Inc."}
@@ -235,7 +264,11 @@ companies = ["Company A", "Company B", "Company Q", "Company Z"]
 # for loop
 for company in companies:
   print(company)
-  
+
+# note that "company" is just a variable we create to unpack "companies", we can name it anything
+for element in companies:
+  print(element)
+
 # we can also use slice notation
 for i in range(0,len(companies)):
   print(i, companies[i])
@@ -286,6 +319,48 @@ Loading is easy:
 ```python
 import numpy as np
 np.mean([1,2,3])
+```
+
+## Bonus—connecting to MySQL
+We will discuss connecting MySQL and Python to __other tools__ in the next session, but as a quick preview, here is a simple example of how you cann connect Python and MySQL. First, you'll need to install a third party package:
+
+```python
+# python 2.x
+pip install mysql-python
+
+# python 3.x
+pip install mysqlclient
+```
+
+Then, run the following code:
+
+```python
+# load the library
+import MySQLdb
+
+# connect to MySQL (on local machine, change parameters as necessary)
+conn = MySQLdb.connect (host = "localhost",
+                        user = "root",
+                        passwd = "",
+                        charset = "utf8",
+                        use_unicode = True)
+
+# now establish a cursor (for running queries)
+cursor = conn.cursor()
+
+# now run a select query
+cursor.execute(""" select firm_id, year
+                   from my_database.firms;")
+                   
+# now print the rows
+for row in cursor.fetchall():
+  firm_id = row[0]
+  year = row[1]
+  print(firm_id,year)
+
+# don't forget to shut things down when done
+cursor.close()
+conn.close()
 ```
 
 ## Bonus—`geopy` package demonstration

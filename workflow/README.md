@@ -157,7 +157,7 @@ dbDisconnect(conn)
 
 ```
 
-If you are running MySQL 8.0, and you have trouble connecting to R, you can try running the following queries (updated to match your login information).
+If you are running MySQL 8.0, and you have __trouble connecting to R,__ you can try running the following queries (updated to match your login information).
 
 ```mysql
 alter user 'root'@'localhost' identified with mysql_native_password by '';

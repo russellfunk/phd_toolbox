@@ -157,6 +157,13 @@ dbDisconnect(conn)
 
 ```
 
+If you are running MySQL 8.0, and you have trouble connecting to R, you can try running the following queries (updated to match your login information).
+
+```mysql
+alter user 'root'@'localhost' identified with mysql_native_password by '';
+flush privileges;
+```
+
 ## How can we link Stata to MySQL?
 
 You can also __connect to MySQL using Stata,__ which has a nice [built in command](https://www.stata.com/manuals13/dodbc.pdf) called `odbc` designed exactly for this purpose. Before using the `odbc` command, though, you'll need to install [MySQL Connector/ODBC](https://dev.mysql.com/downloads/connector/odbc/).

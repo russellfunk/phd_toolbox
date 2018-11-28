@@ -1,6 +1,6 @@
 # Workflow
 
-In this session, you'll learn how to link MySQL to other tools, like Python, R, and Stata.
+In this session, you'll learn how to __link MySQL to other tools,__ like Python, R, and Stata.
 
 ## What is workflow?
 As you work more with tools like MySQL and Python, you'll start to see that they become most valuable __in combination__ with one another. I use the term __workflow__ to refer to the process of working across different tools to do things like __collect, clean, process, and analyze__ data.
@@ -178,6 +178,4 @@ odbc load, exec("`sql_query'") conn("DRIVER={MySQL ODBC 5.3 Unicode Driver};SERV
 
 You'll never use .csv or .dta files again!
 
-![]( =100x20)
-
-<img src="https://github.com/russellfunk/phd_toolbox/blob/master/images/kool_aid.png" width="100" height="100">
+![](https://github.com/russellfunk/phd_toolbox/blob/master/images/kool_aid.png)

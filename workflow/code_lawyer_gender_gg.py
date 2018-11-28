@@ -16,7 +16,7 @@ def main():
   conn = MySQLdb.connect (host = "localhost",
                                 user = "root",
                                 passwd = "",
-                                db = "patentsview",
+                                db = "phd_patentsview",
                                 charset = "utf8",
                                 use_unicode = True)
   cursor = conn.cursor()
@@ -24,7 +24,8 @@ def main():
   # pull the data
   cursor.execute(""" select name_first_id, 
                             name_first_clean
-                     from phd_patentsview.lawyer_gender_coding;""")
+                     from phd_patentsview.lawyer_gender_coding
+                     where name_first_clean is not null;""")
                      
   raw_names = cursor.fetchall()
   
@@ -39,7 +40,7 @@ def main():
 
     # second, try any component of the raw name
     if candidate_gender == "unknown":
-      name_first_components = name_first_clean.split()
+      name_first_clean_components = name_first_clean.split()
       for name_first_clean_component in name_first_clean_components:
         candidate_gender = d.get_gender(name_first_clean_component)
         if candidate_gender != "unknown":
@@ -50,7 +51,7 @@ def main():
     
     # add the record to the database
     cursor.execute(""" update phd_patentsview.lawyer_gender_coding
-                       set gender_gg = %s
+                       set inventor_gender_gg = %s
                        where name_first_id = %s;""", (candidate_gender,
                                                       name_first_id))
  

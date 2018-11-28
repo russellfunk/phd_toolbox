@@ -12,14 +12,14 @@ def main():
   conn = MySQLdb.connect (host = "localhost",
                                 user = "root",
                                 passwd = "",
-                                db = "patentsview",
+                                db = "phd_patentsview",
                                 charset = "utf8",
                                 use_unicode = True)
   cursor = conn.cursor()
 
   cursor.execute(""" select name_first_id, 
                             name_first
-                     from phd_patentsview.laywer_gender_coding;""")
+                     from phd_patentsview.lawyer_gender_coding;""")
                      
   raw_names = cursor.fetchall()
   

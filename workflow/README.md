@@ -159,7 +159,7 @@ dbDisconnect(conn)
 
 ## How can we link Stata to MySQL?
 
-You can also connect to MySQL using Stata, which has a nice [built in command](https://www.stata.com/manuals13/dodbc.pdf) called `odbc` designed exactly for this purpose. Before using the `odbc`` command, though, you'll need to install [MySQL Connector/ODBC](https://dev.mysql.com/downloads/connector/odbc/).
+You can also connect to MySQL using Stata, which has a nice [built in command](https://www.stata.com/manuals13/dodbc.pdf) called `odbc` designed exactly for this purpose. Before using the `odbc` command, though, you'll need to install [MySQL Connector/ODBC](https://dev.mysql.com/downloads/connector/odbc/).
 
 Once you have that installed, you can __pull data directly into Stata__ from MySQL using the code below.
 

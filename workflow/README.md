@@ -178,4 +178,4 @@ odbc load, exec("`sql_query'") conn("DRIVER={MySQL ODBC 5.3 Unicode Driver};SERV
 
 You'll never use .csv or .dta files again!
 
-![](https://github.com/russellfunk/phd_toolbox/blob/master/images/kool_aid.png)
+![](https://github.com/russellfunk/phd_toolbox/blob/master/images/kool_aid.png =100x20)

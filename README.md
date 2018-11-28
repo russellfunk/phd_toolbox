@@ -8,3 +8,4 @@ These notes are intended to accompany workshop presentations and are __not meant
 ## Contents
 * [Session on MySQL](https://github.com/russellfunk/phd_toolbox/tree/master/mysql) 
 * [Session on Python](https://github.com/russellfunk/phd_toolbox/tree/master/python) 
+* [Session on workflow](https://github.com/russellfunk/phd_toolbox/tree/master/workflow) 

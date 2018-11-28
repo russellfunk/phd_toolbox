@@ -101,9 +101,17 @@ If we look at the resulting list of names, we'll notice that they're quite messy
 | 9326          | Hsiang-ning &#8220;Sean&#8221; |
 | 18860         | Robert M?                      |
 
-Before we try to run the gender coding, we'll want to clean up the names a bit. I've written a simple Python script that will pull data from MySQL and do just that. It's too long to paste here, but you can view the whole script [here](http://www.patentsview.org/data/20171226/rawinventor.tsv.zip).
+Before we try to run the gender coding, we'll want to clean up the names a bit. I've written a simple Python script that will pull data from MySQL and do just that. It's too long to paste here, but you can view the whole script [here](https://github.com/russellfunk/phd_toolbox/blob/master/workflow/clean_lawyer_name.py).
 
 ## Part #2: Data collection
+
+Now that we've cleaned our big list of first names, we'll want to collect some data on the gender most commonly associated with each name. Typically, researchers do this by using publicly available data from [Social Security Administration records](https://www.ssa.gov/oact/babynames/index.html). Thankfully, several Python packages have been written that make this whole process much easier. We'll be using a package called [gender_guesser](https://pypi.org/project/gender-guesser/), which you can install by running the following command:
+
+```
+pip install gender-guesser
+```
+
+Once again, the code is too long to show in this note, but you can see it in a separate file, [here]().
 
 ## Part #3: Data processing
 

@@ -133,7 +133,7 @@ install.packages("RMySQL")
 
 Once you have that installed, you can easily __pull data from MySQL__ to analyze in R.
 
-```R
+```r
 # load the library
 library(RMySQL)
 
@@ -163,7 +163,7 @@ You can also connect to MySQL using Stata, which has a nice [built in command](h
 
 Once you have that installed, you can __pull data directly into Stata__ from MySQL using the code below.
 
-```
+```stata
 set odbcdriver ansi
 #delimit ;
 local sql_query 

@@ -11,7 +11,7 @@ def main():
 
   conn = MySQLdb.connect (host = "localhost",
                                 user = "root",
-                                passwd = "russell0",
+                                passwd = "",
                                 db = "patentsview",
                                 charset = "utf8",
                                 use_unicode = True)

@@ -111,7 +111,7 @@ Now that we've cleaned our big list of first names, we'll want to collect some d
 pip install gender-guesser
 ```
 
-Once again, the code is too long to show in this note, but you can see it in a separate file, [here]().
+Once again, the code is too long to show in this note, but you can see it in a separate file, [here](https://github.com/russellfunk/phd_toolbox/blob/master/workflow/code_lawyer_gender_gg.py).
 
 ## Part #3: Data processing
 

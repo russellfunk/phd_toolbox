@@ -186,3 +186,44 @@ odbc load, exec("`sql_query'") conn("DRIVER={MySQL ODBC 5.3 Unicode Driver};SERV
 You'll never use .csv or .dta files again!
 
 ![](https://github.com/russellfunk/phd_toolbox/blob/master/images/kool_aid.png)
+
+# Further instructions on setting up ODBC on macOS
+
+If you have trouble connecting to Stata on macOS, you may need to install [ODBC Administrator](https://support.apple.com/kb/DL895?locale=en_US).
+
+You should see something like the configuration below.
+
+![](https://github.com/russellfunk/phd_toolbox/blob/master/images/MACOS_ODBC_ADMIN_1.png)
+
+
+# Further instructions on setting up ODBC on Windows
+
+*Thanks to [Dennie Kim](http://denniekim.org/) for putting these instructions together!*
+
+Once the MySQL Connector/ODBC plug-in is installed, you have to set up the specific MySQL server that you want to use. The instructions apply to the case where you are hosting data on your own local server/machine (i.e., localhost) but can be easily applied to remote servers.
+
+In Windows, first use Windows search to find the ODBC Data Source Administrator:
+
+![](https://github.com/russellfunk/phd_toolbox/blob/master/images/ODBC_SEARCH.png)
+
+Once in the ODBC Administrator, click "Add..." to add a new data source connection.
+
+![](https://github.com/russellfunk/phd_toolbox/blob/master/images/ODBC_ADMIN_1.png)
+
+You should see a window like this:
+
+![](https://github.com/russellfunk/phd_toolbox/blob/master/images/ODBC_ADMIN_2.png)
+
+Be sure to select the MySQL ODBC option. If you have multiple versions of the ODBC connector installed (e.g., 5.3 and 8.0) be sure to select the one that matches the version of your MySQL server. For new users, the most likely case is MySQL 8.0. Hit "Finish" to proceed to the final step, where you'll see this window:
+
+![](https://github.com/russellfunk/phd_toolbox/blob/master/images/ODBC_ADMIN_2.png)
+
+In the "Data Source Name" field, give your ODBC connection a name that is easy to remember and descriptive. This is what you will use to call a specific connection in your Stata code. For example, if you want to set up a specific connection to the lawyer data we have been using, maybe you will name the connection "lawyer". The description can be whatever you want it to be to describe the data source--I usually just default to the Data Source Name if it's descriptive enough.
+
+Next, in the TCP/IP Server field you have to specify the location of the server you want to access. In the case of your local server, it's easy--just type localhost. In the case of remote servers, you'll need the specific IP address or computer name. For example, if you want to connect to your UMN computer from a remote location, you'll need the IP address of your UMN computer. You can find this by going to the "System" item in the Control Panel and finding the "Full computer name." It should be xxx.ad.umn.edu
+
+In most cases, unless you set up specific user accounts for your MySQL server, you can just type root in the "User" field. If you set up a password, enter that, as well. You can leave the Database blank if you will define the database in your Stata code (or if you will be working across multiple Databases). 
+
+Finally, "Test" your connection to make sure that you can access it. A successful connection should test positively in just a few seconds. If your computer hangs up, there's something wrong. The most likely errors are that you have either incorrectly inputted the server/user/password fields, or your MySQL server is not running. 
+
+![](https://github.com/russellfunk/phd_toolbox/blob/master/images/ODBC_ADMIN_3.png)

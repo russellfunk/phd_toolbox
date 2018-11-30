@@ -166,7 +166,7 @@ flush privileges;
 
 ## How can we link Stata to MySQL?
 
-You can also __connect to MySQL using Stata,__ which has a nice [built in command](https://www.stata.com/manuals13/dodbc.pdf) called `odbc` designed exactly for this purpose. Before using the `odbc` command, though, you'll need to install [MySQL Connector/ODBC](https://dev.mysql.com/downloads/connector/odbc/).
+You can also __connect to MySQL using Stata,__ which has a nice [built in command](https://www.stata.com/manuals13/dodbc.pdf) called `odbc` designed exactly for this purpose. Before using the `odbc` command, though, you'll need to install [MySQL Connector/ODBC](https://dev.mysql.com/downloads/connector/odbc/). Note, depending on your MySQL version, before you install the Connector/ODBC, you may first need to install [iODBC](http://www.iodbc.org/dataspace/doc/iodbc/wiki/iodbcWiki/Downloads).
 
 Once you have that installed, you can __pull data directly into Stata__ from MySQL using the code below.
 
